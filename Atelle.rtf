@@ -1,0 +1,347 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Italic;\f2\fnil\fcharset0 Menlo-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red49\green49\blue49;\red51\green109\blue125;\red13\green95\blue24;
+\red50\green91\blue142;\red29\green111\blue63;\red80\green157\blue203;\red171\green67\blue203;\red28\green64\blue117;
+}
+{\*\expandedcolortbl;;\cssrgb\c25098\c25098\c25098;\cssrgb\c25098\c50196\c56471;\cssrgb\c0\c43922\c12549;
+\cssrgb\c25098\c43922\c62745;\cssrgb\c12549\c50196\c31373;\cssrgb\c37647\c67843\c83529;\cssrgb\c73333\c37647\c83529;\cssrgb\c13725\c32549\c53333;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # set max upload size
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 client_max_body_size
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 512M\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 fastcgi_buffers
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 64\cf2 \strokec2  \cf5 \strokec5 4K\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Enable gzip but do not remove ETag headers
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 gzip
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 on\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 gzip_vary
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 on\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 gzip_comp_level
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 4\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 gzip_min_length
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 256\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 gzip_proxied
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 expired\cf2 \strokec2  \cf5 \strokec5 no-cache\cf2 \strokec2  \cf5 \strokec5 no-store\cf2 \strokec2  \cf5 \strokec5 private\cf2 \strokec2  \cf5 \strokec5 no_last_modified\cf2 \strokec2  \cf5 \strokec5 no_etag\cf2 \strokec2  \cf5 \strokec5 auth\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 gzip_types
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 application/atom+xml\cf2 \strokec2  \cf5 \strokec5 application/javascript\cf2 \strokec2  \cf5 \strokec5 application/json\cf2 \strokec2  \cf5 \strokec5 application/ld+json\cf2 \strokec2  \cf5 \strokec5 application/manifest+json\cf2 \strokec2  \cf5 \strokec5 application/rss+xml\cf2 \strokec2  \cf5 \strokec5 application/vnd.geo+json\cf2 \strokec2  \cf5 \strokec5 application/vnd.ms-fontobject\cf2 \strokec2  \cf5 \strokec5 application/x-font-ttf\cf2 \strokec2  \cf5 \strokec5 application/x-web-app-manifest+json\cf2 \strokec2  \cf5 \strokec5 application/xhtml+xml\cf2 \strokec2  \cf5 \strokec5 application/xml\cf2 \strokec2  \cf5 \strokec5 font/opentype\cf2 \strokec2  \cf5 \strokec5 image/bmp\cf2 \strokec2  \cf5 \strokec5 image/svg+xml\cf2 \strokec2  \cf5 \strokec5 image/x-icon\cf2 \strokec2  \cf5 \strokec5 text/cache-manifest\cf2 \strokec2  \cf5 \strokec5 text/css\cf2 \strokec2  \cf5 \strokec5 text/plain\cf2 \strokec2  \cf5 \strokec5 text/vcard\cf2 \strokec2  \cf5 \strokec5 text/vnd.rim.location.xloc\cf2 \strokec2  \cf5 \strokec5 text/vtt\cf2 \strokec2  \cf5 \strokec5 text/x-component\cf2 \strokec2  \cf5 \strokec5 text/x-cross-domain-policy\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Pagespeed is not supported by Nextcloud, so if your server is built
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # with the `ngx_pagespeed` module, uncomment this line to disable it.
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 #pagespeed off;
+\f0\i0 \cf2 \strokec2 \
+\
+    
+\f1\i \cf3 \strokec3 # HTTP response headers borrowed from Nextcloud `.htaccess`
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 Referrer-Policy\cf2 \strokec2                       \cf5 \strokec5 "no-referrer"\cf2 \strokec2    \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Content-Type-Options\cf2 \strokec2                \cf5 \strokec5 "nosniff"\cf2 \strokec2        \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Download-Options\cf2 \strokec2                    \cf5 \strokec5 "noopen"\cf2 \strokec2         \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Frame-Options\cf2 \strokec2                       \cf5 \strokec5 "SAMEORIGIN"\cf2 \strokec2     \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Permitted-Cross-Domain-Policies\cf2 \strokec2     \cf5 \strokec5 "none"\cf2 \strokec2           \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Robots-Tag\cf2 \strokec2                          \cf5 \strokec5 "none"\cf2 \strokec2           \cf5 \strokec5 always\cf2 \strokec2 ;\
+    
+\f2\b \cf4 \strokec4 add_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-XSS-Protection\cf2 \strokec2                      \cf5 \strokec5 "1\cf2 \strokec2 ; 
+\f2\b \cf4 \strokec4 mode=block"
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 always\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Remove X-Powered-By, which is an information leak
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 fastcgi_hide_header
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 X-Powered-By\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Path to the root of your installation
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 root
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 /var/www/nextcloud\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Specify how to handle directories -- specifying `/index.php$request_uri`
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # here as the fallback means that Nginx always exhibits the desired behaviour
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # when a client requests a path that corresponds to a directory that exists
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # on the server. In particular, if that directory contains an index.php file,
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # that file is correctly served; if it doesn't, then the request is passed to
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # the front-end controller. This consistent behaviour means that we don't need
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # to specify custom rules for certain paths (e.g. images and other assets,
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # `/updater`, `/ocm-provider`, `/ocs-provider`), and thus
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # `try_files $uri $uri/ /index.php$request_uri`
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # always provides the desired behaviour.
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 index
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 index.php\cf2 \strokec2  \cf5 \strokec5 index.html\cf2 \strokec2  \cf5 \strokec5 /index.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+\
+    
+\f1\i \cf3 \strokec3 # Rule borrowed from `.htaccess` to handle Microsoft DAV clients
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  = \cf5 \strokec5 /\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 if
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 (\cf2 \strokec2  \cf8 \strokec8 $http_user_agent\cf2 \strokec2  ~ \cf9 \strokec9 ^DavClnt\cf2 \strokec2  \cf5 \strokec5 )\cf2 \strokec2  \{\
+            
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 302\cf2 \strokec2  \cf5 \strokec5 /remote.php/webdav/\cf8 \strokec8 $is_args$args\cf2 \strokec2 ;\
+        \}\
+    \}\
+\
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  = \cf5 \strokec5 /robots.txt\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 allow
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 all\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 log_not_found
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 off\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 access_log
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 off\cf2 \strokec2 ;\
+    \}\
+\
+    
+\f1\i \cf3 \strokec3 # Make a regex exception for `/.well-known` so that clients can still
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # access it despite the existence of the regex rule
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # `location ~ /(\\.|autotest|...)` which would otherwise handle requests
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # for `/.well-known`.
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 ^~\cf2 \strokec2  \cf5 \strokec5 /.well-known\cf2 \strokec2  \{\
+        
+\f1\i \cf3 \strokec3 # The rules in this block are an adaptation of the rules
+\f0\i0 \cf2 \strokec2 \
+        
+\f1\i \cf3 \strokec3 # in `.htaccess` that concern `/.well-known`.
+\f0\i0 \cf2 \strokec2 \
+\
+        
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  = \cf5 \strokec5 /.well-known/carddav\cf2 \strokec2  \{ 
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 301\cf2 \strokec2  \cf5 \strokec5 /remote.php/dav/\cf2 \strokec2 ; \}\
+        
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  = \cf5 \strokec5 /.well-known/caldav\cf2 \strokec2   \{ 
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 301\cf2 \strokec2  \cf5 \strokec5 /remote.php/dav/\cf2 \strokec2 ; \}\
+\
+        
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 /.well-known/acme-challenge\cf2 \strokec2     \{ 
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $uri\cf2 \strokec2  \cf8 \strokec8 $uri/\cf2 \strokec2  =\cf6 \strokec6 404\cf2 \strokec2 ; \}\
+        
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 /.well-known/pki-validation\cf2 \strokec2     \{ 
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $uri\cf2 \strokec2  \cf8 \strokec8 $uri/\cf2 \strokec2  =\cf6 \strokec6 404\cf2 \strokec2 ; \}\
+\
+        
+\f1\i \cf3 \strokec3 # Let Nextcloud's API for `/.well-known` URIs handle all other
+\f0\i0 \cf2 \strokec2 \
+        
+\f1\i \cf3 \strokec3 # requests by passing them to the front-end controller.
+\f0\i0 \cf2 \strokec2 \
+        
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 301\cf2 \strokec2  \cf5 \strokec5 /index.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+    \}\
+\
+    
+\f1\i \cf3 \strokec3 # Rules borrowed from `.htaccess` to hide certain paths from clients
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  ~ \cf9 \strokec9 ^/(?:build|tests|config|lib|3rdparty|templates|data)(?:$|/)\cf2 \strokec2   \{ 
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 404\cf2 \strokec2 ; \}\
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  ~ \cf9 \strokec9 ^/(?:\\.|autotest|occ|issue|indie|db_|console)\cf2 \strokec2                 \{ 
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 404\cf2 \strokec2 ; \}\
+\
+    
+\f1\i \cf3 \strokec3 # Ensure this block, which passes PHP files to the PHP process, is above the blocks
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # which handle static assets (as seen below). If this block is not declared first,
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # then Nginx will encounter an infinite rewriting loop when it prepends `/index.php`
+\f0\i0 \cf2 \strokec2 \
+    
+\f1\i \cf3 \strokec3 # to the URI, resulting in a HTTP 500 error response.
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  ~ \cf9 \strokec9 \\.php(?:$|/)\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 fastcgi_split_path_info
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 ^(.+?\\.php)(/.*)\cf2 \strokec2 $;\
+        
+\f2\b \cf4 \strokec4 set
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $path_info\cf2 \strokec2  \cf8 \strokec8 $fastcgi_path_info\cf2 \strokec2 ;\
+\
+        
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $fastcgi_script_name\cf2 \strokec2  =\cf6 \strokec6 404\cf2 \strokec2 ;\
+\
+        
+\f2\b \cf4 \strokec4 include
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 fastcgi_params\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 fastcgi_param
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 SCRIPT_FILENAME\cf2 \strokec2  \cf8 \strokec8 $document_root$fastcgi_script_name\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 fastcgi_param
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 PATH_INFO\cf2 \strokec2  \cf8 \strokec8 $path_info\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 fastcgi_param
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 HTTPS\cf2 \strokec2  \cf7 \strokec7 on\cf2 \strokec2 ;\
+\
+        
+\f2\b \cf4 \strokec4 fastcgi_param
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 modHeadersAvailable\cf2 \strokec2  \cf5 \strokec5 true\cf2 \strokec2 ;         
+\f1\i \cf3 \strokec3 # Avoid sending the security headers twice
+\f0\i0 \cf2 \strokec2 \
+        
+\f2\b \cf4 \strokec4 fastcgi_param
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 front_controller_active\cf2 \strokec2  \cf5 \strokec5 true\cf2 \strokec2 ;     
+\f1\i \cf3 \strokec3 # Enable pretty urls
+\f0\i0 \cf2 \strokec2 \
+        
+\f2\b \cf4 \strokec4 fastcgi_pass
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 php-handler\cf2 \strokec2 ;\
+\
+        
+\f2\b \cf4 \strokec4 fastcgi_intercept_errors
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 on\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 fastcgi_request_buffering
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 off\cf2 \strokec2 ;\
+    \}\
+\
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  ~ \cf9 \strokec9 \\.(?:css|js|svg|gif)$\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $uri\cf2 \strokec2  \cf5 \strokec5 /index.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 expires
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 6M\cf2 \strokec2 ;         
+\f1\i \cf3 \strokec3 # Cache-Control policy borrowed from `.htaccess`
+\f0\i0 \cf2 \strokec2 \
+        
+\f2\b \cf4 \strokec4 access_log
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 off\cf2 \strokec2 ;     
+\f1\i \cf3 \strokec3 # Optional: Don't log access to assets
+\f0\i0 \cf2 \strokec2 \
+    \}\
+\
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  ~ \cf9 \strokec9 \\.woff2?$\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $uri\cf2 \strokec2  \cf5 \strokec5 /index.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+        
+\f2\b \cf4 \strokec4 expires
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 7d\cf2 \strokec2 ;         
+\f1\i \cf3 \strokec3 # Cache-Control policy borrowed from `.htaccess`
+\f0\i0 \cf2 \strokec2 \
+        
+\f2\b \cf4 \strokec4 access_log
+\f0\b0 \cf2 \strokec2  \cf7 \strokec7 off\cf2 \strokec2 ;     
+\f1\i \cf3 \strokec3 # Optional: Don't log access to assets
+\f0\i0 \cf2 \strokec2 \
+    \}\
+\
+    
+\f1\i \cf3 \strokec3 # Rule borrowed from `.htaccess`
+\f0\i0 \cf2 \strokec2 \
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 /remote\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 return
+\f0\b0 \cf2 \strokec2  \cf6 \strokec6 301\cf2 \strokec2  \cf5 \strokec5 /remote.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+    \}\
+\
+    
+\f2\b \cf4 \strokec4 location
+\f0\b0 \cf2 \strokec2  \cf5 \strokec5 /\cf2 \strokec2  \{\
+        
+\f2\b \cf4 \strokec4 try_files
+\f0\b0 \cf2 \strokec2  \cf8 \strokec8 $uri\cf2 \strokec2  \cf8 \strokec8 $uri/\cf2 \strokec2  \cf5 \strokec5 /index.php\cf8 \strokec8 $request_uri\cf2 \strokec2 ;\
+    \}\
+\}\
+}
